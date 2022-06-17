@@ -1,0 +1,96 @@
+@import "../../../styles/color.common.scss";
+
+.header {
+  border-bottom: 1px solid $greyA9;
+
+  &__container {
+    display: flex;
+    gap: 48px;
+    align-items: center;
+    padding-block: 38px;
+
+    @media screen and (max-width: 500px) {
+      gap: 15px;
+      flex-direction: column;
+      padding-block: 20px;
+    }
+  }
+
+  &__title {
+    font-weight: 900;
+    font-size: 1.8rem;
+    line-height: 2.1rem;
+    color: $blueDC;
+    margin-right: auto;
+
+    @media screen and (max-width: 500px) {
+      font-size: 2.8rem;
+      line-height: 3.1rem;
+      margin-right: 0;
+      order: 0;
+    }
+  }
+
+  &__chapter,
+  &__account-text {
+    font-weight: 900;
+    font-size: 1.2rem;
+    line-height: 1.4rem;
+    color: $black;
+    transition: color 0.3s ease-in-out;
+
+    @media screen and (max-width: 500px) {
+      font-size: 1.8rem;
+      line-height: 2rem;
+    }
+  }
+
+  &__chapter {
+    @media screen and (max-width: 500px) {
+      margin-bottom: 30px;
+      order: 1;
+    }
+  }
+
+  &__account {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    border-radius: 3px;
+    padding: 3px;
+    transition: box-shadow 0.3s ease-in-out;
+
+    @media screen and (max-width: 500px) {
+      flex-direction: column;
+      order: 2;
+    }
+  }
+
+  &__account-icon {
+    width: 20px;
+    height: 20px;
+
+    @media screen and (max-width: 500px) {
+      width: 30px;
+      height: 30px;
+    }
+
+    & > path {
+      fill: $black;
+      transition: fill 0.3s ease-in-out;
+    }
+  }
+
+  &__account:hover > &__account-text {
+    color: $blueDC;
+  }
+
+  &__account:hover > &__account-icon > path {
+    fill: $blueDC;
+  }
+
+  &__account:focus-visible {
+    outline: none;
+    box-shadow: inset 0 0 0 2px $blueDC;
+  }
+}

@@ -1,0 +1,33 @@
+@import "../../../../styles/color.common.scss";
+@import "../../../../styles/vars.common.scss";
+
+.specs-table {
+  width: 100%;
+  border-top: 1px solid $greyD2;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__row {
+    display: flex;
+    gap: min(2vw, $trGap);
+    align-items: center;
+    padding-block: 33px;
+    border-bottom: 1px solid $greyD2;
+  }
+
+  &__title,
+  &__spec {
+    font-weight: 500;
+    font-size: 1.8rem;
+    line-height: 2.1rem;
+    text-align: left;
+    width: clamp(160px, 17.5vw, $tdWidth);
+  }
+
+  &__title {
+    color: $greyB9;
+  }
+}

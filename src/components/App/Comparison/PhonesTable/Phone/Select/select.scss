@@ -1,0 +1,97 @@
+@import "../../../../../../styles/color.common.scss";
+
+.select {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  &__btn-active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 27px;
+  }
+
+  &__btn-arrow {
+    width: 22px;
+    height: 11px;
+  }
+
+  &__wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    gap: 18px;
+    flex-direction: column;
+    background-color: $white;
+    box-shadow: inset 0 0 0 1px $greyE3;
+    border-radius: 4px;
+    box-shadow: 0px 16px 32px #2327331a;
+    width: 421px;
+    height: 336px;
+    pointer-events: none;
+    transform-origin: top;
+    transform: scaleY(0);
+    padding-block: 34px 25px;
+    padding-inline: 18px 34px;
+    z-index: 1;
+  }
+
+  &__search {
+    width: 100%;
+    height: 47px;
+    box-shadow: inset 0 0 0 1px $greyC1;
+    border-radius: 4px;
+    font-weight: 400;
+    font-size: 2.4rem;
+    line-height: 2.8rem;
+    padding-inline: 16px;
+    opacity: 0;
+
+    &::placeholder {
+      color: $greyC1;
+    }
+  }
+
+  &__list {
+    display: flex;
+    gap: 30px;
+    flex-direction: column;
+  }
+
+  &__item {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+
+  &__btn-choice {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+  }
+
+  &__replace-icon {
+    width: 20px;
+    height: 20px;
+
+    & > path {
+      fill: $green5B;
+    }
+  }
+
+  &__img {
+    width: 24px;
+    height: 50px;
+    object-fit: fill;
+    object-position: center;
+    margin-right: 4px;
+  }
+
+  &__phone-name {
+    font-weight: 400;
+    font-size: 1.8rem;
+    line-height: 4rem;
+  }
+}
