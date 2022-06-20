@@ -1,1 +1,1 @@
-export * from './Comparison';
+export * from './ComparisonContainer';

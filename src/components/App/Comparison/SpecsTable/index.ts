@@ -1,1 +1,1 @@
-export * from './SpecsTable';
+export * from './SpecsTableContainer';

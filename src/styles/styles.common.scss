@@ -47,3 +47,27 @@ a {
   padding-inline: 10px;
   margin-inline: auto;
 }
+
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $greyE3;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: $greyA9;
+}
+
+@supports (scrollbar-color: $greyE3 transparent) {
+  * {
+    scrollbar-color: $greyE3 transparent;
+    scrollbar-width: thin;
+  }
+}

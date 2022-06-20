@@ -3,31 +3,52 @@
 
 .specs-table {
   width: 100%;
-  border-top: 1px solid $greyD2;
-
-  &__wrapper {
-    display: flex;
-    flex-direction: column;
-  }
+  min-width: 768px;
 
   &__row {
     display: flex;
-    gap: min(2vw, $trGap);
+    gap: calc(clamp(10px, 2vw, 30px) * var(--scale));
     align-items: center;
-    padding-block: 33px;
+    width: 100%;
+    padding-block: calc(33px * var(--scale));
     border-bottom: 1px solid $greyD2;
   }
 
-  &__title,
-  &__spec {
-    font-weight: 500;
-    font-size: 1.8rem;
-    line-height: 2.1rem;
-    text-align: left;
-    width: clamp(160px, 17.5vw, $tdWidth);
+  &__body > &__row:last-of-type {
+    border-bottom: none;
   }
 
-  &__title {
+  &__header > &__row {
+    align-items: baseline;
+    padding-block: 0 calc(74px * var(--scale));
+  }
+
+  &__header > &__row > &__td:first-of-type {
+    align-self: flex-end;
+  }
+
+  &__header > &__row > &__td:nth-last-of-type(-n + 2) .select__wrapper {
+    left: auto;
+    right: 0;
+  }
+
+  &__body {
+    background-color: $blueFC;
+  }
+
+  &__body > &__row > &__td:first-of-type {
     color: $greyB9;
+  }
+
+  &__td {
+    font-weight: 500;
+    font-size: calc(1.8rem * var(--scale));
+    line-height: calc(2.1rem * var(--scale));
+    text-align: left;
+    width: calc(clamp(200px, 21.5vw, 255px) * var(--scale));
+
+    &:not(:first-of-type) {
+      width: calc(clamp(160px, 21.5vw, 255px) * var(--scale));
+    }
   }
 }

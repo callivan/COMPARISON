@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently \"npm i\" \"webpack-dev-server --config ./webpack/webpack.dev.config.js\" \"json-server -w ./src/server/db.json -p 3001\""
+    "start": "concurrently \"npm i\" \"webpack-dev-server --config ./webpack/webpack.dev.config.js\" \"json-server --static ./src/assets/imgs -w ./src/server/db.json -p 3001\""
   },
   "repository": {
     "type": "git",

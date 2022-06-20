@@ -1,1 +1,1 @@
-export * from './PhoneCount';
+export * from './PhoneCountContainer';

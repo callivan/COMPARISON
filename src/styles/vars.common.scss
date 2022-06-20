@@ -1,2 +1,15 @@
-$trGap: 30px;
-$tdWidth: 255px;
+:root {
+  --scale: 1;
+
+  .specs-table.show-four {
+    --scale: 0.8;
+  }
+
+  .specs-table.show-five {
+    --scale: 0.67;
+  }
+
+  .specs-table.show-six {
+    --scale: 0.58;
+  }
+}

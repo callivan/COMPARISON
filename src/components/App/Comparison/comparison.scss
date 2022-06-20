@@ -4,7 +4,11 @@
   display: flex;
   gap: 20px;
   flex-direction: column;
-  padding-block: 63px;
+  padding-block: 63px 0;
+
+  @media screen and (max-width: 768px) {
+    padding-block: 43px 0;
+  }
 
   &__container {
     width: 100%;
@@ -13,6 +17,10 @@
     align-items: center;
     flex-wrap: wrap;
     justify-content: space-between;
+
+    @media screen and (max-width: 768px) {
+      flex-direction: column;
+    }
   }
 
   &__title {
@@ -20,12 +28,24 @@
     font-size: 4.8rem;
     line-height: 6rem;
     color: $grey86;
+
+    @media screen and (max-width: 500px) {
+      font-size: 4rem;
+      line-height: 5.2rem;
+    }
   }
 
-  &__tables {
-    display: flex;
-    gap: 74px;
-    flex-direction: column;
-    width: 100%;
+  &__count {
+    @media screen and (max-width: 500px) {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__table-wrapper {
+    overflow-y: hidden;
+    
+    @media screen and (max-width: 768px) {
+      overflow-x: scroll;
+    }
   }
 }
