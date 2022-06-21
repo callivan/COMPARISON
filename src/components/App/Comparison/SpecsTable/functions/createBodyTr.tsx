@@ -49,9 +49,23 @@ export function createBodyTr(
       );
     }
 
+    let units = "";
+
+    switch (prop) {
+      case "memory":
+        units = " Гб";
+        break;
+      case "frequency":
+        units = " Гц";
+        break;
+      case "price":
+        units = " ₽";
+        break;
+    }
+
     return (
       <td className={"specs-table__td"} key={String(phone.id + prop + index)}>
-        {phone[prop]}
+        {phone[prop] + units}
       </td>
     );
   });
@@ -67,9 +81,6 @@ export function createBodyTr(
       break;
     case "screen":
       tdTitle = "ДИАГОНЯЛЬ ЭКРАНА (ДЮЙМ)";
-      break;
-    case "country":
-      tdTitle = "СТРАНА-ПРОИЗВОДИТЕЛЬ";
       break;
     case "country":
       tdTitle = "СТРАНА-ПРОИЗВОДИТЕЛЬ";

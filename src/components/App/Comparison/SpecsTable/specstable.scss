@@ -4,18 +4,23 @@
 .specs-table {
   width: 100%;
   min-width: 768px;
+  opacity: 0;
 
   &__row {
     display: flex;
     gap: calc(clamp(10px, 2vw, 30px) * var(--scale));
     align-items: center;
     width: 100%;
-    padding-block: calc(33px * var(--scale));
+    padding-block: calc(35px * var(--scale));
     border-bottom: 1px solid $greyD2;
   }
 
   &__body > &__row:last-of-type {
     border-bottom: none;
+  }
+
+  &__body > &__row:nth-of-type(1n + 2) {
+    padding-block: calc(43px * var(--scale));
   }
 
   &__header > &__row {
@@ -30,6 +35,10 @@
   &__header > &__row > &__td:nth-last-of-type(-n + 2) .select__wrapper {
     left: auto;
     right: 0;
+  }
+
+  &__header > &__row > &__td:not(:last-of-type) {
+    padding-left: 14px;
   }
 
   &__body {

@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import { useSelector } from "react-redux";
 import { PhoneDataType } from "../../../../server/types";
 import { InitialStateType } from "../../../../store/rootTypes";
+
+import { tableShow } from "./animations/tableShow";
 
 import { addTableClass } from "./functions/addTableClass";
 
@@ -12,9 +14,13 @@ export function SpecsTable() {
   const showPhones = useSelector<InitialStateType, Array<PhoneDataType>>(
     (state) => state.showPhones
   );
-  const notShowPhones = useSelector<InitialStateType, Array<PhoneDataType>>(
-    (state) => state.notShowPhones
+  const phonesAll = useSelector<InitialStateType, Array<PhoneDataType>>(
+    (state) => state.phones
   );
+
+  useEffect(() => {
+    tableShow();
+  }, [])
 
   return (
     <table
@@ -22,7 +28,7 @@ export function SpecsTable() {
     >
       <SpecsTableComponent
         showPhones={showPhones}
-        notShowPhones={notShowPhones}
+        phonesAll={phonesAll}
       />
     </table>
   );

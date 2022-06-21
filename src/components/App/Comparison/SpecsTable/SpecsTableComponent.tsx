@@ -9,14 +9,14 @@ import styles from "./specstable.scss";
 
 interface ISpecsTableComponentProps {
   showPhones: Array<PhoneDataType>;
-  notShowPhones: Array<PhoneDataType>;
+  phonesAll: Array<PhoneDataType>;
 }
 
-export function SpecsTableComponent({ showPhones, notShowPhones }: ISpecsTableComponentProps) {
+export function SpecsTableComponent({ showPhones, phonesAll }: ISpecsTableComponentProps) {
   return (
     <>
       <thead className={styles["specs-table__header"]}>
-        {createHeaderTr(showPhones, notShowPhones)}
+        {createHeaderTr(showPhones, phonesAll)}
       </thead>
       <tbody className={styles["specs-table__body"]}>
         {createBodyTr(showPhones, "maker")}

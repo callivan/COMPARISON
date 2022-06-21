@@ -33,13 +33,6 @@ export function Select({ id, className }: ISelectProps) {
         dispatch(ChangeShowPhonesAction(id, Number(target.dataset.choose)));
         dispatch(NotShowPhonesAction());
       }
-
-      if (target.closest(".select__wrapper")) {
-        const radioInputs: NodeListOf<HTMLInputElement> =
-          e.currentTarget.querySelectorAll("[name='select-radio']");
-
-        radioInputs.forEach((input) => (input.checked = false));
-      }
     }
   }
 
@@ -60,7 +53,9 @@ export function Select({ id, className }: ISelectProps) {
       onClick={(e) => HandleClickSelect(e)}
       onChange={(e) => HandleChangeInputSelect(e)}
     >
-      <SelectComponent>{createSelectItem(notShowPhones)}</SelectComponent>
+      <SelectComponent notShowPhonesCount={notShowPhones.length}>
+        {createSelectItem(notShowPhones)}
+      </SelectComponent>
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import { useDispatch, useSelector } from "react-redux";
 import { PhoneDataType } from "../../../../../server/types";
 import {
@@ -6,6 +7,7 @@ import {
   ReturnAllSpecsAction,
 } from "../../../../../store/removeSameSpec/actions";
 import { InitialStateType } from "../../../../../store/rootTypes";
+
 import { CheckDiffComponent } from "./CheckDiffComponent";
 
 interface ICheckDiffProps {

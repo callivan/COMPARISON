@@ -1,8 +1,6 @@
 import { ActionCreator, ThunkAction } from "@reduxjs/toolkit";
 import { PhoneDataType } from "../../server/types";
 import { InitialStateType } from "../rootTypes";
-import { AddShowPhonesIdAction } from "../showPhones/actions";
-import { ShowPhonesIdActionsType } from "../showPhones/types";
 import {
   GetPhonesActionsType,
   GetPhonesErrorActionType,
@@ -33,7 +31,7 @@ export const GetPhones =
     void,
     InitialStateType,
     any,
-    GetPhonesActionsType | ShowPhonesIdActionsType
+    GetPhonesActionsType
   > =>
   async (dispatch) => {
     try {

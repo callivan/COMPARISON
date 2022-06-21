@@ -2,13 +2,17 @@ import React from "react";
 
 import { PhoneDataType } from "../../../../../../../server/types";
 
-export function createSelectItem(phones: Array<PhoneDataType>) {
+export function createSelectItem(
+  phones: Array<PhoneDataType>,
+) {
+
   return phones.map((phone) => {
     return (
       <li className={"select__item"} key={String(phone.id)}>
         <button
           className={"select__btn-choice"}
           data-choose={phone.id}
+          aria-label={`Выбрать телефон ${phone.model} для сравнения`}
         >
           <svg
             className={"select__replace-icon"}

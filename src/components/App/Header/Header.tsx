@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
+
+import { headerShow } from "./animations/headerShow";
 
 import styles from "./header.scss";
 
 export function Header() {
+  useEffect(() => {
+    headerShow();
+  }, []);
+
   return (
     <header className={styles["header"]}>
       <div className={[styles["header__container"], "container"].join(" ")}>

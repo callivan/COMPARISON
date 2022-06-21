@@ -2,12 +2,14 @@
 
 .header {
   border-bottom: 1px solid $greyA9;
+  transform-origin: top;
+  transform: scaleY(0);
 
   &__container {
     display: flex;
-    gap: 48px;
+    gap: 46px;
     align-items: center;
-    padding-block: 38px;
+    padding-block: 37px;
 
     @media screen and (max-width: 500px) {
       gap: 15px;
@@ -22,6 +24,8 @@
     line-height: 2.1rem;
     color: $blueDC;
     margin-right: auto;
+    opacity: 0;
+    transform: translateX(-50px);
 
     @media screen and (max-width: 500px) {
       font-size: 2.8rem;
@@ -33,10 +37,12 @@
 
   &__chapter,
   &__account-text {
-    font-weight: 900;
+    font-weight: 700;
     font-size: 1.2rem;
     line-height: 1.4rem;
     color: $black;
+    opacity: 0;
+    transform: translateX(50px);
     transition: color 0.3s ease-in-out;
 
     @media screen and (max-width: 500px) {
@@ -54,7 +60,7 @@
 
   &__account {
     display: flex;
-    gap: 18px;
+    gap: 16px;
     align-items: center;
     border-radius: 3px;
     padding: 3px;
@@ -66,9 +72,17 @@
     }
   }
 
+  &__account-text {
+    letter-spacing: -1px;
+  }
+
   &__account-icon {
-    width: 20px;
-    height: 20px;
+    position: relative;
+    right: -3px;
+    width: 21px;
+    height: 21px;
+    opacity: 0;
+    transform: translateX(50px);
 
     @media screen and (max-width: 500px) {
       width: 30px;

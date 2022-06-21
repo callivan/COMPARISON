@@ -6,40 +6,38 @@
   display: flex;
   flex-direction: column;
 
-  &__btn-active {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: calc(30px * var(--scale));
-    height: calc(27px * var(--scale));
-  }
-
   &__btn-radio {
     cursor: pointer;
     position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
+    top: -9px;
+    right: -2px;
+    width: 27px;
+    height: 27px;
     z-index: 1;
     appearance: none;
+    border-radius: 50%;
+    transition: box-shadow 0.3s ease-in-out;
   }
 
   &__btn-arrow {
     pointer-events: none;
     width: calc(22px * var(--scale));
     height: calc(11px * var(--scale));
+    transition: transform 0.3s ease-in-out;
+
+    & > path {
+      transition: stroke 0.3s ease-in-out;
+    }
   }
 
   &__wrapper {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: -9px;
+    left: -2px;
     display: flex;
     gap: calc(18px * var(--scale));
     flex-direction: column;
     background-color: $white;
-    box-shadow: inset 0 0 0 1px $greyE3;
     border-radius: 4px;
     border: 1px solid $greyE3;
     box-shadow: 0px 16px 32px #2327331a;
@@ -48,8 +46,8 @@
     pointer-events: none;
     transform-origin: top;
     transform: scaleY(0);
-    padding-block: calc(34px * var(--scale)) calc(25px * var(--scale));
-    padding-inline: calc(18px * var(--scale)) calc(34px * var(--scale));
+    padding-block: calc(33px * var(--scale)) calc(25px * var(--scale));
+    padding-inline: calc(18px * var(--scale)) calc(43px * var(--scale));
     z-index: 2;
     overflow-x: hidden;
     transition: transform 0.3s ease-in-out;
@@ -65,7 +63,7 @@
     line-height: calc(2.8rem * var(--scale));
     padding-inline: calc(16px * var(--scale));
     opacity: 0;
-    transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 
     &::placeholder {
       color: $greyC1;
@@ -96,9 +94,13 @@
     display: flex;
     gap: calc(18px * var(--scale));
     align-items: center;
+    width: 100%;
+    transition: box-shadow 0.3s ease-in-out;
   }
 
   &__replace-icon {
+    position: relative;
+    top: 2px;
     pointer-events: none;
     width: calc(20px * var(--scale));
     height: calc(20px * var(--scale));
@@ -124,34 +126,60 @@
     line-height: calc(4rem * var(--scale));
   }
 
-  &__btn-radio:checked + &__wrapper {
+  &__btn-radio:checked + &__btn-arrow + &__wrapper {
     pointer-events: visible;
     transform: scaleY(1);
   }
 
-  &__btn-radio:checked + &__wrapper > &__search {
-    transition-delay: 0.4s;
+  &__btn-radio:checked + &__btn-arrow + &__wrapper > &__search {
     opacity: 1;
   }
 
-  &__btn-radio:checked + &__wrapper > &__list > &__item {
-    transition-delay: 0.4s;
+  &__btn-radio:checked + &__btn-arrow + &__wrapper > &__list > &__item {
     transform: translateX(0);
     opacity: 1;
   }
 
-  &__btn-radio:not(:checked) + &__wrapper {
-    transition-delay: 0.4s;
+  &__btn-radio:not(:checked) + &__btn-arrow + &__wrapper {
     pointer-events: none;
     transform: scaleY(0);
   }
 
-  &__btn-radio:not(:checked) + &__wrapper > &__search {
+  &__btn-radio:not(:checked) + &__btn-arrow + &__wrapper > &__search {
     opacity: 0;
   }
 
-  &__btn-radio:not(:checked) + &__wrapper > &__list > &__item {
+  &__btn-radio:not(:checked) + &__btn-arrow + &__wrapper > &__list > &__item {
     transform: translateX(-50px);
     opacity: 0;
+  }
+
+  &__btn-radio:hover + &__btn-arrow {
+    transform: scale(1.2);
+  }
+
+  &__btn-radio:hover + &__btn-arrow > path {
+    stroke: $black;
+  }
+
+  &__btn-radio:focus-visible {
+    outline: none;
+    box-shadow: inset 0 0 0 2px $blueDC;
+  }
+
+  &__search:hover,
+  &__search:focus-visible,
+  &__search:active {
+    outline: none;
+    box-shadow: inset 0 0 0 1px $blueDC;
+  }
+
+  &__btn-choice:hover {
+    box-shadow: inset 0 -5px 7px -4px $black;
+  }
+
+  &__btn-choice:focus-visible {
+    outline: none;
+    box-shadow: inset 0 0 0 2px $blueDC;
   }
 }

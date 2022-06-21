@@ -19,6 +19,7 @@ export function Phone({
   notShowPhonesCount,
   className,
 }: IPhoneProps) {
+
   return (
     <div className={[styles["phone"], className].join(" ")}>
       <img className={styles["phone__img"]} src={img} alt="Телефон" />

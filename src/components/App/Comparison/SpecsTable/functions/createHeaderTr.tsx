@@ -6,10 +6,10 @@ import { CheckDiff } from "../CheckDiff";
 import { Phone } from "../Phone";
 
 export function createHeaderTr(
-  phones: Array<PhoneDataType>,
-  notShowPhones: Array<PhoneDataType>
+  phonesShow: Array<PhoneDataType>,
+  phonesAll: Array<PhoneDataType>
 ) {
-  if (phones.length === 0) {
+  if (phonesShow.length === 0) {
     return null;
   }
 
@@ -18,14 +18,14 @@ export function createHeaderTr(
       <td className={"specs-table__td"}>
         <CheckDiff />
       </td>
-      {phones.map((phone) => {
+      {phonesShow.map((phone) => {
         return (
           <td className={"specs-table__td"} key={String(phone.id)}>
             <Phone
               id={phone.id}
               img={phone.img}
               name={phone.model}
-              notShowPhonesCount={notShowPhones.length}
+              notShowPhonesCount={phonesAll.length - phonesShow.length}
             />
           </td>
         );
