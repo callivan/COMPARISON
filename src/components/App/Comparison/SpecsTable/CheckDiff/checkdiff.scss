@@ -1,0 +1,72 @@
+@import "../../../../../styles/color.common.scss";
+@import "../../../../../styles/vars.common.scss";
+
+.check {
+  position: relative;
+  display: flex;
+  gap: calc(14px * var(--scale));
+  align-items: center;
+  font-weight: 400;
+  letter-spacing: .05rem;
+  font-size: calc(1.8rem * var(--scale));
+  line-height: calc(2.5rem * var(--scale));
+  color: $blueDC;
+  transition: color 0.3s ease-in-out;
+
+  &__diff-input {
+    position: absolute;
+    appearance: none;
+  }
+
+  &__custom-input {
+    flex-shrink: 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(24px * var(--scale));
+    height: calc(24px * var(--scale));
+    border-radius: 4px;
+    box-shadow: inset 0 0 0 2px $greyC1;
+  }
+
+  &__custom-mark {
+    position: absolute;
+    top: 6px;
+    width: 60%;
+    height: 35%;
+    opacity: 0;
+    transform: rotate(-60deg);
+    transition: opacity 0.3s ease-in-out;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      background-color: $green5B;
+    }
+
+    &::before {
+      top: 0;
+      left: 0;
+      width: 2px;
+      height: 100%;
+      transform: rotate(20deg);
+    }
+
+    &::after {
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+    }
+  }
+
+  &__diff-input:checked + &__custom-input > &__custom-mark {
+    opacity: 1;
+  }
+
+  &:hover {
+    color: $black;
+  }
+}

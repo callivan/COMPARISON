@@ -1,0 +1,185 @@
+@import "../../../../../../styles/color.common.scss";
+@import "../../../../../../styles/vars.common.scss";
+
+.select {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  &__btn-radio {
+    cursor: pointer;
+    position: absolute;
+    top: -9px;
+    right: -2px;
+    width: 27px;
+    height: 27px;
+    z-index: 1;
+    appearance: none;
+    border-radius: 50%;
+    transition: box-shadow 0.3s ease-in-out;
+  }
+
+  &__btn-arrow {
+    pointer-events: none;
+    width: calc(22px * var(--scale));
+    height: calc(11px * var(--scale));
+    transition: transform 0.3s ease-in-out;
+
+    & > path {
+      transition: stroke 0.3s ease-in-out;
+    }
+  }
+
+  &__wrapper {
+    position: absolute;
+    top: -9px;
+    left: -2px;
+    display: flex;
+    gap: calc(18px * var(--scale));
+    flex-direction: column;
+    background-color: $white;
+    border-radius: 4px;
+    border: 1px solid $greyE3;
+    box-shadow: 0px 16px 32px #2327331a;
+    width: calc(421px * var(--scale));
+    height: calc(336px * var(--scale));
+    pointer-events: none;
+    transform-origin: top;
+    transform: scaleY(0);
+    padding-block: calc(33px * var(--scale)) calc(25px * var(--scale));
+    padding-inline: calc(18px * var(--scale)) calc(43px * var(--scale));
+    z-index: 2;
+    overflow-x: hidden;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  &__search {
+    width: 100%;
+    height: calc(47px * var(--scale));
+    box-shadow: inset 0 0 0 1px $greyC1;
+    border-radius: 4px;
+    font-weight: 400;
+    font-size: calc(2.4rem * var(--scale));
+    line-height: calc(2.8rem * var(--scale));
+    padding-inline: calc(16px * var(--scale));
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+
+    &::placeholder {
+      color: $greyC1;
+    }
+  }
+
+  &__list {
+    display: flex;
+    gap: calc(30px * var(--scale));
+    flex-direction: column;
+
+    &.scroll {
+      overflow-y: scroll;
+    }
+
+    &::-webkit-scrollbar {
+      width: 5px;
+    }
+  }
+
+  &__item {
+    transform: translateX(-50px);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
+
+  &__btn-choice {
+    display: flex;
+    gap: calc(18px * var(--scale));
+    align-items: center;
+    width: 100%;
+    transition: box-shadow 0.3s ease-in-out;
+  }
+
+  &__replace-icon {
+    position: relative;
+    top: 2px;
+    pointer-events: none;
+    width: calc(20px * var(--scale));
+    height: calc(20px * var(--scale));
+
+    & > path {
+      fill: $green5B;
+    }
+  }
+
+  &__img {
+    pointer-events: none;
+    width: calc(24px * var(--scale));
+    height: calc(50px * var(--scale));
+    object-fit: fill;
+    object-position: center;
+    margin-right: 4px;
+  }
+
+  &__phone-name {
+    pointer-events: none;
+    font-weight: 400;
+    font-size: calc(1.8rem * var(--scale));
+    line-height: calc(4rem * var(--scale));
+  }
+
+  &__btn-radio:checked + &__btn-arrow + &__wrapper {
+    pointer-events: visible;
+    transform: scaleY(1);
+  }
+
+  &__btn-radio:checked + &__btn-arrow + &__wrapper > &__search {
+    opacity: 1;
+  }
+
+  &__btn-radio:checked + &__btn-arrow + &__wrapper > &__list > &__item {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  &__btn-radio:not(:checked) + &__btn-arrow + &__wrapper {
+    pointer-events: none;
+    transform: scaleY(0);
+  }
+
+  &__btn-radio:not(:checked) + &__btn-arrow + &__wrapper > &__search {
+    opacity: 0;
+  }
+
+  &__btn-radio:not(:checked) + &__btn-arrow + &__wrapper > &__list > &__item {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+
+  &__btn-radio:hover + &__btn-arrow {
+    transform: scale(1.2);
+  }
+
+  &__btn-radio:hover + &__btn-arrow > path {
+    stroke: $black;
+  }
+
+  &__btn-radio:focus-visible {
+    outline: none;
+    box-shadow: inset 0 0 0 2px $blueDC;
+  }
+
+  &__search:hover,
+  &__search:focus-visible,
+  &__search:active {
+    outline: none;
+    box-shadow: inset 0 0 0 1px $blueDC;
+  }
+
+  &__btn-choice:hover {
+    box-shadow: inset 0 -5px 7px -4px $black;
+  }
+
+  &__btn-choice:focus-visible {
+    outline: none;
+    box-shadow: inset 0 0 0 2px $blueDC;
+  }
+}

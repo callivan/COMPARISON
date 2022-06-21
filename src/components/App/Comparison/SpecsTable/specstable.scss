@@ -1,0 +1,63 @@
+@import "../../../../styles/color.common.scss";
+@import "../../../../styles/vars.common.scss";
+
+.specs-table {
+  width: 100%;
+  min-width: 768px;
+  opacity: 0;
+
+  &__row {
+    display: flex;
+    gap: calc(clamp(10px, 2vw, 30px) * var(--scale));
+    align-items: center;
+    width: 100%;
+    padding-block: calc(35px * var(--scale));
+    border-bottom: 1px solid $greyD2;
+  }
+
+  &__body > &__row:last-of-type {
+    border-bottom: none;
+  }
+
+  &__body > &__row:nth-of-type(1n + 2) {
+    padding-block: calc(43px * var(--scale));
+  }
+
+  &__header > &__row {
+    align-items: baseline;
+    padding-block: 0 calc(74px * var(--scale));
+  }
+
+  &__header > &__row > &__td:first-of-type {
+    align-self: flex-end;
+  }
+
+  &__header > &__row > &__td:nth-last-of-type(-n + 2) .select__wrapper {
+    left: auto;
+    right: 0;
+  }
+
+  &__header > &__row > &__td:not(:last-of-type) {
+    padding-left: 14px;
+  }
+
+  &__body {
+    background-color: $blueFC;
+  }
+
+  &__body > &__row > &__td:first-of-type {
+    color: $greyB9;
+  }
+
+  &__td {
+    font-weight: 500;
+    font-size: calc(1.8rem * var(--scale));
+    line-height: calc(2.1rem * var(--scale));
+    text-align: left;
+    width: calc(clamp(200px, 21.5vw, 255px) * var(--scale));
+
+    &:not(:first-of-type) {
+      width: calc(clamp(160px, 21.5vw, 255px) * var(--scale));
+    }
+  }
+}
