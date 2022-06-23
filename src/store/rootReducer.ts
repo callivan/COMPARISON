@@ -29,6 +29,7 @@ import { searchPhones } from "./searchPhone/functions/searchPhones";
 const initialState: InitialStateType = {
   phones: [],
   showPhones: [],
+  prevShowPhones: [],
   notShowPhones: [],
   error: "",
 };
@@ -50,11 +51,18 @@ export const rootReducer: Reducer<
       return {
         ...state,
         showPhones: addShowPhones([...state.phones], action.count),
+        prevShowPhones: addShowPhones([...state.phones], action.count),
       };
     case CHANGE_SHOW_PHONES:
       return {
         ...state,
         showPhones: changeShowPhones(
+          [...state.phones],
+          [...state.showPhones],
+          action.from,
+          action.to
+        ),
+        prevShowPhones: changeShowPhones(
           [...state.phones],
           [...state.showPhones],
           action.from,

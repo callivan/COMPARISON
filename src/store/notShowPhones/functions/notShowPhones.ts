@@ -8,5 +8,7 @@ export function notShowPhones(
 ) {
   const phonesAll = [...phones];
   const phonesShow = [...showPhones];
-  return phonesAll.filter((phone) => !phonesShow.includes(phone));
+  return phonesAll.filter((phone) =>
+    phonesShow.find((innerPhone) => innerPhone.id === phone.id) ? false : true
+  );
 }

@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 import { PhoneDataType } from "../../../../server/types";
 import { NotShowPhonesAction } from "../../../../store/notShowPhones/actions";
 import { InitialStateType } from "../../../../store/rootTypes";
-import { AddShowPhonesAction } from "../../../../store/showPhones/actions";
+import {
+  AddShowPhonesAction,
+  PrevShowPhonesAction,
+} from "../../../../store/showPhones/actions";
 
 import { PhoneCountComponent } from "./PhoneCountComponent";
 

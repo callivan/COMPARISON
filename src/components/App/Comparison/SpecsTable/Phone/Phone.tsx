@@ -19,14 +19,15 @@ export function Phone({
   notShowPhonesCount,
   className,
 }: IPhoneProps) {
-
   return (
     <div className={[styles["phone"], className].join(" ")}>
-      <img className={styles["phone__img"]} src={img} alt="Телефон" />
+      <div className={styles["phone__info"]}>
+        <img className={styles["phone__img"]} src={img} alt="Телефон" />
+        {notShowPhonesCount > 0 && (
+          <Select className={styles["phone__select"]} id={id} />
+        )}
+      </div>
       <h3 className={styles["phone__name"]}>{name}</h3>
-      {notShowPhonesCount > 0 && (
-        <Select className={styles["phone__select"]} id={id} />
-      )}
     </div>
   );
 }

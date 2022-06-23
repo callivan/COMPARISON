@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 import { PhoneDataType } from "../../../../../server/types";
@@ -15,24 +15,30 @@ interface ICheckDiffProps {
 }
 
 export function CheckDiff({ className }: ICheckDiffProps) {
-  const showPhones = useSelector<InitialStateType, Array<PhoneDataType>>(
-    (state) => state.showPhones
+  const prevShowPhones = useSelector<InitialStateType, Array<PhoneDataType>>(
+    (state) => state.prevShowPhones
   );
-  const [prevState, setPrevState] = useState<Array<PhoneDataType> | null>(null);
   const [isRemoveSpecs, setRemoveSpecs] = useState(false);
   const dispatch = useDispatch();
 
+  useEffect(() => {
+
+    console.log(1)
+
+    !isRemoveSpecs
+      ? dispatch(ReturnAllSpecsAction(prevShowPhones))
+      : dispatch(RemoveSameSpecsAction());
+  }, [isRemoveSpecs, prevShowPhones]);
+
   function HandleClickDiff(e: React.MouseEvent<HTMLLabelElement, MouseEvent>) {
-    if (e.target instanceof HTMLInputElement) {
-      isRemoveSpecs
-        ? dispatch(ReturnAllSpecsAction(prevState))
-        : dispatch(RemoveSameSpecsAction());
-
-      if (!isRemoveSpecs) {
-        setPrevState(showPhones);
-      }
-
+    if (
+      e.target instanceof HTMLLabelElement ||
+      e.target instanceof HTMLSpanElement
+    ) {
       setRemoveSpecs(!isRemoveSpecs);
+      return;
+    } else {
+      e.stopPropagation();
     }
   }
 
